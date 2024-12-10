@@ -1,0 +1,18 @@
+name: Test workflow
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+
+jobs:
+  testJob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Halla!"
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: List files
+        run: |
+          echo "Repositoriet ${{ github.repository }} inneholder følgende filer:"
+          tree
